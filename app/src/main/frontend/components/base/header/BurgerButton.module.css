@@ -1,0 +1,43 @@
+.button {
+    display: flex;
+    align-self: center;
+    background-color: var(--background-color);
+    border: unset;
+    margin-right: 1rem;
+}
+
+.ripple {
+    &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background-color: currentColor;
+        visibility: hidden;
+        z-index: 2;
+    }
+
+    &:not(:active):before {
+        animation: ripple .4s cubic-bezier(0, 0, .2, 1);
+        transition: visibility .4s step-end;
+    }
+
+    &:active:before {
+        visibility: visible;
+    }
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: .5;
+    }
+
+    100% {
+        width: 2rem;
+        height: 2rem;
+        opacity: 0;
+    }
+}

@@ -1,9 +1,11 @@
 import { ReactElement } from "react";
-
+import Header from "./components/base/header/Header";
+import "./App.css"
+import "./AppFonts.css"
 const App = (): ReactElement => {
     return (
         <div>
-            <h1>Hello there</h1>
+            <Header />
         </div>
     );
 }
