@@ -1,43 +1,45 @@
 .button {
-    display: flex;
-    align-self: center;
-    background-color: var(--background-color);
-    border: unset;
-    margin-right: 1rem;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  color: white;
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-.ripple {
-    &:before {
-        content: '';
-        width: 0;
-        height: 0;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        background-color: currentColor;
-        visibility: hidden;
-        z-index: 2;
-    }
+.button::after {
+  content: "ripple";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  animation: ripple 1s ease-out;
+}
 
-    &:not(:active):before {
-        animation: ripple .4s cubic-bezier(0, 0, .2, 1);
-        transition: visibility .4s step-end;
-    }
-
-    &:active:before {
-        visibility: visible;
-    }
+.button:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  animation: ripple 1s ease-out;
 }
 
 @keyframes ripple {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: .5;
-    }
-
-    100% {
-        width: 2rem;
-        height: 2rem;
-        opacity: 0;
-    }
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.6;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
 }
