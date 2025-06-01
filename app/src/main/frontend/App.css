@@ -1,6 +1,9 @@
 body {
     --background-color: #2A2A2A;
+    --header-color:#181818;
     margin: unset;
+    background-color: var(--background-color);
+    
 
     .material-icons {
         font-family: 'Material Icons';

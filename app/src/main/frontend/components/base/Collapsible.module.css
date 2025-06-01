@@ -1,13 +1,14 @@
 .collapsible_child {
-    border-top: 0.1px rgb(153, 153, 153) solid;
+    border-top: 0.1px #2F2F2F solid;
     padding: 8px;
     border-width: thin;
+    color: white;
 }
 
 .container {
     margin-top: 0.125rem;
-    background-color: white;
+    background-color: var(--header-color);
     padding-bottom: 2px;
     min-width: 15rem;
-    box-shadow: 5px 2.5px 2.5px rgb(218, 215, 215);
+    border-radius: 0 0 4px 0;
 }
